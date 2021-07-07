@@ -6,16 +6,16 @@
 
 [![](https://img.shields.io/badge/Paddle-2.0-blue)](https://www.paddlepaddle.org.cn/)[![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)![](https://img.shields.io/badge/version-0.1-yellow)
 
-这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析![qaeewagy](/source/qaeewagy.png)
+这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析🚀🚀🚀
 
-目前所支持的功能有：![oqrhsqot](/source/oqrhsqot.gif)
+目前所支持的功能有：
 
 - [x] ImageNet 上快速验证模型
 - [x] 测试图片 Top5 类别
 - [x] 测试模型 Param、Thoughtout
 - [x] CAM (Class Activation Mapping)
 - [x] TTA (Test Time Augmention)
-- [ ] 计划中:clipboard: ...
+- [ ] 计划中:clipboard:![oqrhsqot](/source/oqrhsqot.gif) ...
 
 ## 安装
 
@@ -25,7 +25,7 @@ pip install ppma -i https://pypi.python.org/simple
 
 ## 快速开始
 
-<img src="./source/NewPiskel.gif" alt="New Piskel" style="zoom:25%;" /> Note：推荐去 AI Studio 在线免费运行项目 [PPMA 快速指南](https://aistudio.baidu.com/aistudio/projectdetail/2143665)
+🔥🔥🔥 Note：推荐去 AI Studio 在线免费运行项目 [PPMA 快速指南](https://aistudio.baidu.com/aistudio/projectdetail/2143665)
 
 * ImageNet 上快速验证模型
 
