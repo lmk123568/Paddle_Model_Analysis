@@ -1,14 +1,14 @@
 
 
-![acuowkoa](C:\Users\Mike\Desktop\ppma\source\acuowkoa.png)
+![acuowkoa](/source/acuowkoa.png)
 
 # 📦 Paddle Model Analysis
 
 [![](https://img.shields.io/badge/Paddle-2.0-blue)](https://www.paddlepaddle.org.cn/)[![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)![](https://img.shields.io/badge/version-0.1-yellow)
 
-这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析![qaeewagy](C:\Users\Mike\Desktop\ppma\source\qaeewagy.png)
+这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析![qaeewagy](/source/qaeewagy.png)
 
-目前所支持的功能有：![oqrhsqot](C:\Users\Mike\Desktop\ppma\source\oqrhsqot.gif)
+目前所支持的功能有：![oqrhsqot](/source/oqrhsqot.gif)
 
 - [x] ImageNet 上快速验证模型
 - [x] 测试图片 Top5 类别
@@ -25,7 +25,7 @@ pip install ppma -i https://pypi.python.org/simple
 
 ## 快速开始
 
-<img src="C:\Users\Mike\Desktop\ppma\source\New Piskel.gif" alt="New Piskel" style="zoom:25%;" /> Note：推荐去 AI Studio 在线免费运行项目 [PPMA 快速指南](https://aistudio.baidu.com/aistudio/projectdetail/2143665)
+<img src="./source/NewPiskel.gif" alt="New Piskel" style="zoom:25%;" /> Note：推荐去 AI Studio 在线免费运行项目 [PPMA 快速指南](https://aistudio.baidu.com/aistudio/projectdetail/2143665)
 
 * ImageNet 上快速验证模型
 
@@ -150,5 +150,5 @@ ppma.imagenet2012.validate(model, img_path)  # 变量命名有些冗余，可以
 
 ## 效果预览
 
- <img src="./source/total.png" alt="图片1" style="zoom: 60%;" />
+ <img src="./source/total.png" alt="图片1" style="zoom: 30%;" />
 
