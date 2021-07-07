@@ -20,7 +20,7 @@
 ## 安装
 
 ```bash
-pip install ppma -i https://pypi.python.org/simple
+pip install ppma 
 ```
 
 ## 快速开始
