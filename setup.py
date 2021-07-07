@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 
-version = '0.2.4'  # ppma/__init__.py 
+version = '0.3.0'  # ppma/__init__.py 
 requirements = ['rich',
                 'opencv-python',
                 ]

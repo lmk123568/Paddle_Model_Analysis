@@ -45,19 +45,18 @@ def multiply(x, factor):
     return x * factor
 
 
-def scale(x, scale_factor, interpolation="nearest", align_corners=None):
+def scale(x, scale_factor, interpolation="nearest"):
     """scale batch of images by `scale_factor` with given interpolation mode"""
     h, w = x.shape[2:]
     new_h = int(h * scale_factor)
     new_w = int(w * scale_factor)
     return F.interpolate(
-        x, size=(new_h, new_w), mode=interpolation, align_corners=align_corners
-    )
+        x, size=(new_h, new_w), mode=interpolation)
 
 
-def resize(x, size, interpolation="nearest", align_corners=None):
+def resize(x, size, interpolation="nearest"):
     """resize batch of images to given spatial size with given interpolation mode"""
-    return F.interpolate(x, size=size, mode=interpolation, align_corners=align_corners)
+    return F.interpolate(x, size=size, mode=interpolation)
 
 
 def crop(x, x_min=None, x_max=None, y_min=None, y_max=None):

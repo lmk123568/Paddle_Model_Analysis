@@ -95,7 +95,6 @@ class Scale(DualTransform):
     Args:
         scales (List[Union[int, float]]): scale factors for spatial image dimensions
         interpolation (str): one of "nearest"/"lenear" (see more in torch.nn.interpolate)
-        align_corners (bool): see more in torch.nn.interpolate
     """
 
     identity_param = 1
@@ -104,12 +103,10 @@ class Scale(DualTransform):
         self,
         scales: List[Union[int, float]],
         interpolation: str = "nearest",
-        align_corners: Optional[bool] = None,
     ):
         if self.identity_param not in scales:
             scales = [self.identity_param] + list(scales)
         self.interpolation = interpolation
-        self.align_corners = align_corners
 
         super().__init__("scale", scales)
 
@@ -119,7 +116,6 @@ class Scale(DualTransform):
                 image,
                 scale,
                 interpolation=self.interpolation,
-                align_corners=self.align_corners,
             )
         return image
 
@@ -129,7 +125,6 @@ class Scale(DualTransform):
                 mask,
                 1 / scale,
                 interpolation=self.interpolation,
-                align_corners=self.align_corners,
             )
         return mask
 
@@ -155,13 +150,11 @@ class Resize(DualTransform):
         sizes: List[Tuple[int, int]],
         original_size: Tuple[int, int] = None,
         interpolation: str = "nearest",
-        align_corners: Optional[bool] = None,
     ):
         if original_size is not None and original_size not in sizes:
             sizes = [original_size] + list(sizes)
         self.interpolation = interpolation
-        self.align_corners = align_corners
-        self.original_size = original_size
+
 
         super().__init__("size", sizes)
 
@@ -171,7 +164,6 @@ class Resize(DualTransform):
                 image,
                 size,
                 interpolation=self.interpolation,
-                align_corners=self.align_corners,
             )
         return image
 
@@ -185,7 +177,6 @@ class Resize(DualTransform):
                 mask,
                 self.original_size,
                 interpolation=self.interpolation,
-                align_corners=self.align_corners,
             )
         return mask
 
