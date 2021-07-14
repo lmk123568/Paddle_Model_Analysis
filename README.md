@@ -35,12 +35,12 @@ pip install ppma
 
 ```bash
 data/ILSVRC2012
-		├─ ILSVRC2012_val_00000001.JPEG
-		├─ ILSVRC2012_val_00000002.JPEG
-		├─ ILSVRC2012_val_00000003.JPEG
-		├─ ...
-		├─ ILSVRC2012_val_00050000.JPEG
-		└─ val.txt   # target
+	├─ ILSVRC2012_val_00000001.JPEG
+	├─ ILSVRC2012_val_00000002.JPEG
+	├─ ILSVRC2012_val_00000003.JPEG
+	├─ ...
+	├─ ILSVRC2012_val_00050000.JPEG
+	└─ val.txt   # target
 ```
 
 准备好数据集后，运行以下代码
