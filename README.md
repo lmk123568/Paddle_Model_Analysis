@@ -14,7 +14,7 @@
 
 - [x] ImageNet 上快速验证模型
 - [x] 测试图片 Top5 类别
-- [x] 测试模型 Param、Thoughtout
+- [x] 测试模型 Param、Throughput
 - [x] CAM (Class Activation Mapping)
 - [x] TTA (Test Time Augmention)
 - [ ] 计划中:clipboard:![oqrhsqot](/source/oqrhsqot.gif) ...
@@ -67,7 +67,7 @@ model = paddle.vision.models.resnet50(pretrained=True)   # 可以替换自己的
 ppma.imagenet.test_img(model, img_path)
 ```
 
-* 测试模型 Param、Thoughtout
+* 测试模型 Param、Throughput
 
 ```python
 import ppma
