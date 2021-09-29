@@ -49,7 +49,7 @@ def throughput(model, image_size=224):
                 if i % 100 == 0:
                     infer_speed = (i + 1 - num_warmup) / pure_inf_time
                     print(
-                        "[{: >4}/{:}]  infer_speed: {:.1f} img/s ".format(
+                        "[{: >3}/{:}]  infer_speed: {:.1f} img/s ".format(
                             i, len(test_loader), infer_speed
                         )
                     )
