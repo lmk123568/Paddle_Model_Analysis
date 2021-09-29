@@ -70,7 +70,7 @@ import paddle
 img_path = 'test.jpg'                                    # 图片路径
 model = paddle.vision.models.resnet50(pretrained=True)   # 可以替换自己的模型
 
-ppma.imagenet.test_img(model, img_path)
+ppma.imagenet.test_img(model, img_path, image_size=224, crop_pct=0.875, normalize=0.485)
 ```
 
 * 测试模型 Params、Throughput
