@@ -6,7 +6,7 @@ import paddle.nn.functional as F
 import paddle.vision.transforms as T
 from paddle.io import DataLoader, Dataset
 from PIL import Image
-from utils import AverageMeter, get_val_transforms
+from .utils import AverageMeter, get_val_transforms
 
 
 class ImageNet2012Dataset(Dataset):

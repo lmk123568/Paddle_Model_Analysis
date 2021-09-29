@@ -3,7 +3,7 @@ import paddle.vision.transforms as T
 from PIL import Image
 from rich.console import Console
 from rich.table import Column, Table
-from utils import get_val_transforms
+from .utils import get_val_transforms
 
 classes = [
     "tench, Tinca tinca",
