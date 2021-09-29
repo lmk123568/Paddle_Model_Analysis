@@ -4,5 +4,3 @@ from . import imagenet
 from . import tools
 from . import cam
 from . import tta
-
-__version__ = '0.3.0'

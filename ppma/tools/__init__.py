@@ -1,2 +1,1 @@
-from .analysis import param
-from .analysis import throughput
+from .analysis import param, throughput

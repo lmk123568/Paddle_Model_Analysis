@@ -1,6 +1,6 @@
+import numpy as np
 import paddle
 import paddle.nn.functional as F
-import numpy as np
 
 
 def rot90(x, k=1):
@@ -50,8 +50,7 @@ def scale(x, scale_factor, interpolation="nearest"):
     h, w = x.shape[2:]
     new_h = int(h * scale_factor)
     new_w = int(w * scale_factor)
-    return F.interpolate(
-        x, size=(new_h, new_w), mode=interpolation)
+    return F.interpolate(x, size=(new_h, new_w), mode=interpolation)
 
 
 def resize(x, size, interpolation="nearest"):

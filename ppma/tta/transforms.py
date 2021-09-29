@@ -1,5 +1,6 @@
 from functools import partial
-from typing import Optional, List, Union, Tuple
+from typing import List, Optional, Tuple, Union
+
 from . import functional as F
 from .base import DualTransform, ImageOnlyTransform
 
@@ -155,7 +156,6 @@ class Resize(DualTransform):
             sizes = [original_size] + list(sizes)
         self.interpolation = interpolation
 
-
         super().__init__("size", sizes)
 
     def apply_aug_image(self, image, size, **kwargs):
@@ -233,7 +233,7 @@ class FiveCrops(ImageOnlyTransform):
 
     Args:
         crop_height (int): crop height in pixels
-        crop_width (int): crop width in pixels 
+        crop_width (int): crop width in pixels
     """
 
     def __init__(self, crop_height, crop_width):

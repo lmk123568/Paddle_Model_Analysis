@@ -1,5 +1,5 @@
-from .base import Compose
 from . import transforms as tta
+from .base import Compose
 
 
 def flip_transform():
@@ -21,6 +21,7 @@ def d4_transform():
             tta.Rotate90(angles=[0, 90, 180, 270]),
         ]
     )
+
 
 def multiscale_transform(scales, interpolation="nearest"):
     return Compose([tta.Scale(scales, interpolation=interpolation)])

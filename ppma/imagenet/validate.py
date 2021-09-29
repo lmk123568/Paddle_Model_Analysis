@@ -1,73 +1,81 @@
-import paddle
-import paddle.vision.transforms as T
-from paddle.io import Dataset, DataLoader
+import time
 
 import numpy as np
-import time
+import paddle
+import paddle.nn.functional as F
+import paddle.vision.transforms as T
+from paddle.io import DataLoader, Dataset
 from PIL import Image
+from utils import AverageMeter, get_val_transforms
 
 
-
-class ILSVRC2012_val(Dataset):
-    def __init__(self, data):
+class ImageNet2012Dataset(Dataset):
+    def __init__(self, data, image_size, crop_pct, normalize):
         super().__init__()
         self.data = data
-        self.transforms = T.Compose([T.Resize(256),
-                                     T.CenterCrop(224),
-                                     T.ToTensor(),
-                                     T.Normalize(mean=[0.485, 0.456, 0.406],
-                                                 std =[0.229, 0.224, 0.225])
-                                     ])
+        self.transforms = get_val_transforms(image_size, crop_pct, normalize)
 
     def __getitem__(self, idx):
         # 处理图像
-        img_path = self.data[idx][0]                # 得到某样本的路径
+        img_path = self.data[idx][0]  # 得到某样本的路径
         img = Image.open(img_path)
-        if img.mode != 'RGB':
-            img = img.convert('RGB')
-        img = self.transforms(img)                  # 数据预处理
+        if img.mode != "RGB":
+            img = img.convert("RGB")
+        img = self.transforms(img)  # 数据预处理
 
         # 处理标签
-        label = self.data[idx][1]                   # 得到某样本的标签
-        label = np.array([label], dtype="int64")    # 把标签数据类型转成int64
+        label = self.data[idx][1]  # 得到某样本的标签
+        label = np.array([label], dtype="int64")  # 把标签数据类型转成int64
         return img, label
 
     def __len__(self):
-        return len(self.data)                       # 返回每个Epoch中图片数量
-
-        
-
-def val(model, data_path, batch_size=128):
-
-	data_list = []
-	with open(data_path + '/' + "val.txt") as f:
-	    for line in f:
-	        a,b = line.strip("\n").split(" ")
-	        data_list.append([data_path + '/' + a, int(b)])
-
-	val_loader = DataLoader(ILSVRC2012_val(data_list),
-	                        batch_size=batch_size
-	                        )
+        return len(self.data)  # 返回每个Epoch中图片数量
 
 
-	m = paddle.metric.Accuracy(topk=(1,5))
-	model.eval()
+def val(
+    model, data_path, batch_size=128, image_size=224, crop_pct=0.875, normalize=0.485
+):
 
-	with paddle.no_grad():
+    data_list = []
+    with open(data_path + "/" + "val.txt") as f:
+        for line in f:
+            a, b = line.strip("\n").split(" ")
+            data_list.append([data_path + "/" + a, int(b)])
 
-	    end = time.time()
-	    for i, (images, target) in enumerate(val_loader):
-	        
-	        output = model(images)
+    val_loader = DataLoader(
+        ImageNet2012Dataset(data_list, image_size, crop_pct, normalize),
+        batch_size=batch_size,
+    )
 
-	        m.update(m.compute(output, target))
-	        acc1, acc5 = m.accumulate()
+    model.eval()
 
-	        batch_time = time.time() - end
-	        
-	        if i % 40 == 0:
-	            print("[{: >3}/{:}]  top1_acc {:.3f}  top5_acc {:.3f}  time {:.3f}s".format(i, len(val_loader), acc1, acc5, batch_time))
+    val_acc1_meter = AverageMeter()
+    val_acc5_meter = AverageMeter()
 
-	        end = time.time()
+    with paddle.no_grad():
 
-	print("top1_acc {:.3f}  top5_acc {:.3f}".format(m.accumulate()[0], m.accumulate()[1]))
+        for i, (images, target) in enumerate(val_loader):
+            start_time = time.perf_counter()
+
+            output = model(images)
+            batch_time = time.perf_counter() - start_time
+
+            pred = F.softmax(output)
+            acc1 = paddle.metric.accuracy(pred, target)
+            acc5 = paddle.metric.accuracy(pred, target, k=5)
+
+            batch_size = images.shape[0]
+
+            val_acc1_meter.update(acc1.numpy()[0], batch_size)
+            val_acc5_meter.update(acc5.numpy()[0], batch_size)
+
+            if i % 40 == 0:
+                print(
+                    f"[{i: >3}/{len(val_loader):}]  top1_acc: {val_acc1_meter.avg:.4f}  top5_acc: {val_acc5_meter.avg:.4f}  time: {batch_time:.3f}s"
+                )
+
+    print(
+        "Overall  top1_acc: {:.3f}  top5_acc: {:.3f}".format(
+            val_acc1_meter.avg, val_acc5_meter.avg
+        )
+    )

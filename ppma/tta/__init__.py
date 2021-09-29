@@ -1,9 +1,13 @@
-from .wrappers import ClassTTA
-
-from .base import Compose
-
-from .transforms import (
-    HorizontalFlip, VerticalFlip, Rotate90, Scale, Add, Multiply, FiveCrops, Resize
-)
-
 from . import aliases
+from .base import Compose
+from .transforms import (
+    Add,
+    FiveCrops,
+    HorizontalFlip,
+    Multiply,
+    Resize,
+    Rotate90,
+    Scale,
+    VerticalFlip,
+)
+from .wrappers import ClasTTA
