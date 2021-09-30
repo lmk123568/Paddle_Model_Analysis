@@ -75,7 +75,7 @@ def val(
                 )
 
     print(
-        "Overall  top1_acc: {:.3f}  top5_acc: {:.3f}".format(
+        "Overall  top1_acc: {:.4f}  top5_acc: {:.4f}".format(
             val_acc1_meter.avg, val_acc5_meter.avg
         )
     )
