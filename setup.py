@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 
-VERSION = "0.3.4"
+VERSION = "0.3.5"
 REQUIREMENTS = [
     "rich",
     "opencv-python",
