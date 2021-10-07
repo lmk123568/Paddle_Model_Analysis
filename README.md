@@ -10,7 +10,7 @@
 
 本项目追求最短的代码、更小的冗余，用最小的学习成本让用户使用，以用户体验为根本，在这里你可以用最少三行代码来实现想要的功能。
 
-🎉🎉🎉本项目很荣幸上 PaddlePaddle 公众号 --> [点我查看具体详情](https://mp.weixin.qq.com/s/md0ZvN2M7SLtcwgtEKTe7w)
+🎉🎉🎉 十分感谢 PaddlePaddle 公众号推荐本项目 --> [点我查看具体详情](https://mp.weixin.qq.com/s/md0ZvN2M7SLtcwgtEKTe7w)
 
 目前所支持的功能有：
 
