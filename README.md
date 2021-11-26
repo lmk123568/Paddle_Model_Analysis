@@ -4,7 +4,7 @@
 
 # 📦 Paddle Model Analysis
 
-[![](https://img.shields.io/badge/Paddle-2.1.2-blue)](https://www.paddlepaddle.org.cn/) [![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![](https://img.shields.io/badge/Version-0.3-yellow)
+[![](https://img.shields.io/badge/Paddle-2.2.0-blue)](https://www.paddlepaddle.org.cn/) [![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![](https://img.shields.io/badge/Version-0.3-yellow)
 
 这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析🚀🚀🚀
 
