@@ -18,7 +18,7 @@ import paddle.nn as nn
 from .op_count import *
 
 
-def flops(model, input_size, per_op=True):
+def flops(model, img_size, per_op=True):
     """Get FLOPs and Params
 
     Args:
@@ -29,7 +29,7 @@ def flops(model, input_size, per_op=True):
 
     handler_collection = []
     types_collection = set()
-    inputs = paddle.randn([1, 3, input_size, input_size])
+    inputs = paddle.randn([1, 3, img_size, img_size])
 
     def add_hooks(m):
         if len(list(m.children())) > 0:
@@ -103,6 +103,9 @@ def flops(model, input_size, per_op=True):
 
     print(f"Total FLOPs : {int(total_flops):,}")
     print(f"Total Params: {int(total_params):,}")
+
+    for handler in handler_collection:
+        handler.remove()
 
 
 class Table(object):

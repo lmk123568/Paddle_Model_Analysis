@@ -1,4 +1,4 @@
-# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
+# Copyright (c) 2021 Mike. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,9 +32,9 @@ class TestDataset(Dataset):
         return self.num_samples
 
 
-def throughput(model, image_size):
+def throughput(model, img_size):
 
-    test_loader = DataLoader(TestDataset(2000, image_size), batch_size=1)
+    test_loader = DataLoader(TestDataset(2000, img_size), batch_size=1)
 
     # the first several iterations may be very slow so skip them
     num_warmup = 5

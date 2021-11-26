@@ -16,12 +16,16 @@
 
 - [x] ImageNet 上快速验证模型
 - [x] 测试图片 Top5 类别
-- [x] 测试模型 Params、Throughput
+- [x] 测试模型 Params、Throughput、FLOPs
 - [x] CAM (Class Activation Mapping)
 - [x] TTA (Test Time Augmention)
 - [ ] 计划中:clipboard:![oqrhsqot](source/oqrhsqot.gif) ...
 
 ## 更新
+
+Update(2021-11-26)：增加 FLOPs 计算
+
+Update(2021-11-26)：更新 Param、Troughput
 
 Update (2021-09-29)：优化ImageNet验证，规范代码为PEP8
 
@@ -79,13 +83,13 @@ ppma.imagenet.test_img(model, img_path, image_size=224, crop_pct=0.875, normaliz
 import ppma
 import paddle
 
-model = paddle.vision.models.resnet50()   # 可以替换自己的模型
+res50 = paddle.vision.models.resnet50()   # 可以替换自己的模型
 
-# Params -- depend model
-ppma.tools.params(model)
+# FLOPs、Params -- depend model and resolution
+ppma.modelstat.FLOPs(model=res50, img_size=224, per_op=True)
 
-# Thoughtout -- depend model and resolution
-ppma.tools.throughput(model, image_size=224)
+# Thoughput -- depend model and resolution
+ppma.tools.throughput(model=res50, img_size=224)
 ```
 
 * CAM (Class Activation Mapping)
