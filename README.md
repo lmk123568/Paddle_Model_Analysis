@@ -25,9 +25,9 @@
 
 Update(2021-11-26)：增加 FLOPs 计算
 
-Update(2021-11-26)：更新 Param、Troughput
+Update(2021-11-26)：更新 Params、Troughput 的计算
 
-Update (2021-09-29)：优化ImageNet验证，规范代码为PEP8
+Update (2021-09-29)：优化 ImageNet1k 验证，规范代码为PEP8
 
 ## 安装
 
@@ -86,10 +86,10 @@ import paddle
 res50 = paddle.vision.models.resnet50()   # 可以替换自己的模型
 
 # FLOPs、Params -- depend model and resolution
-ppma.modelstat.FLOPs(model=res50, img_size=224, per_op=True)
+ppma.modelstat.flops(model=res50, img_size=224, per_op=True)
 
 # Thoughput -- depend model and resolution
-ppma.tools.throughput(model=res50, img_size=224)
+ppma.modelstat.throughput(model=res50, img_size=224)
 ```
 
 * CAM (Class Activation Mapping)
