@@ -49,7 +49,7 @@ pip install ppma
 当训练了新的模型后，或者复现了某个模型，我们需要在 ImageNet 数据集上验证性能，先准备数据集结构如下（可去[ImageNet](https://image-net.org/)官网或者[AI Studio]([https://aistudio.baidu.com/aistudio/datasetdetail/96753)下载）
 
 ```bash
-data/ILSVRC2012                         # 记住这个路径
+data/ILSVRC2012                             # 记住这个路径
 	├─ ILSVRC2012_val_00000001.JPEG
 	├─ ILSVRC2012_val_00000002.JPEG
 	├─ ILSVRC2012_val_00000003.JPEG
