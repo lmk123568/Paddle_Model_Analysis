@@ -1009,10 +1009,10 @@ classes = [
 ]
 
 
-def test_img(model, img_path, image_size=224, crop_pct=0.875, normalize=0.485):
+def test_img(model, img_path, img_size=224, crop_pct=0.875, normalize=0.485):
     model.eval()
 
-    transforms = get_val_transforms(image_size, crop_pct, normalize)
+    transforms = get_val_transforms(img_size, crop_pct, normalize)
 
     img = Image.open(img_path)
     if img.mode != "RGB":

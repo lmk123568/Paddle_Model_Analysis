@@ -18,7 +18,7 @@ import paddle.nn as nn
 from .op_count import *
 
 
-def flops(model, img_size, per_op=True):
+def flops(model, img_size, detail=True):
     """Get FLOPs and Params
 
     Args:
@@ -98,7 +98,7 @@ def flops(model, img_size, per_op=True):
             m._buffers.pop("params")
             m._buffers.pop("input_shape")
             m._buffers.pop("output_shape")
-    if per_op:
+    if detail:
         table.print_table()
 
     print(f"Total FLOPs : {int(total_flops):,}")
@@ -110,7 +110,6 @@ def flops(model, img_size, per_op=True):
 
 class Table(object):
     """Visual table
-    from https://github.com/PaddlePaddle/Paddle/python/paddle/hapi/static_flops.py
     """
 
     def __init__(self, table_heads):

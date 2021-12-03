@@ -3,4 +3,3 @@
 from . import imagenet
 from . import modelstat
 from . import cam
-from . import tta

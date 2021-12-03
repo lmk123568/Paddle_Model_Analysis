@@ -33,7 +33,7 @@ class ImageNet2012Dataset(Dataset):
 
 
 def val(
-    model, data_path, batch_size=128, image_size=224, crop_pct=0.875, normalize=0.485
+    model, data_path, batch_size=128, img_size=224, crop_pct=0.875, normalize=0.485
 ):
 
     data_list = []
@@ -43,7 +43,7 @@ def val(
             data_list.append([data_path + "/" + a, int(b)])
 
     val_loader = DataLoader(
-        ImageNet2012Dataset(data_list, image_size, crop_pct, normalize),
+        ImageNet2012Dataset(data_list, img_size, crop_pct, normalize),
         batch_size=batch_size,
     )
 
