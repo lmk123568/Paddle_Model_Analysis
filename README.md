@@ -30,9 +30,18 @@ Update(2021-12-03)：TTA(测试时数据增强)不符合PPMA用途，后续版�
 
 Update(2021-11-26)：增加 FLOPs 计算
 
+<details>
+
+<summary>
+更早的：
+</summary>
+
 Update(2021-11-26)：更新 Params、Troughput 的计算
 
 Update(2021-09-29)：优化 ImageNet1k 验证，规范代码为PEP8
+
+</details>
+
 
 ## 安装
 
