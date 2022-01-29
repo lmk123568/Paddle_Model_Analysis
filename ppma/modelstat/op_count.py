@@ -23,8 +23,6 @@
 #                         - nn.AdaptiveAvgPool
 #                         - coming soon ...
 #
-# Copyright (c) 2021 PaddlePaddle Authors. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 (the "License")
 # --------------------------------------------------------------------------------------------
 
 import paddle

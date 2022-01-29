@@ -4,9 +4,9 @@
 
 # 📦 Paddle Model Analysis
 
-[![](https://img.shields.io/badge/Paddle-2.2.0-blue)](https://www.paddlepaddle.org.cn/) [![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![](https://img.shields.io/badge/Version-1.1.0-yellow)
+[![](https://img.shields.io/badge/Paddle-2.2.0-blue)](https://www.paddlepaddle.org.cn/) [![Documentation Status](https://img.shields.io/badge/Tutorial-最新-brightgreen.svg)](https://paddlepaddle.org.cn/documentation/docs/zh/guides/index_cn.html) [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) ![](https://img.shields.io/badge/Version-1.1.1-yellow)
 
-这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析🚀🚀🚀
+这是基于飞桨开发的工具包，以极简主义为特色，用于对分类任务模型进行快速分析 🚀🚀🚀
 
 本项目追求最短的代码、更小的冗余，用最小的学习成本让用户使用，以用户体验为根本，在这里你可以用最少三行代码来实现想要的功能。
 
@@ -14,27 +14,26 @@
 
 目前所支持的功能有：
 
-- [x] ImageNet 上快速验证模型
+- [x] ImageNet 精度测试
 - [x] 测试图片 Top5 类别
 - [x] 测试模型 Params、Throughput、FLOPs
 - [x] CAM (Class Activation Mapping)
 - [ ] Coming Soon ...
 
-🛠犹如瑞士军刀般，小而精悍！
-
 ## 更新
+
+Update(2022-01-29)：规范 time 测试
 
 Update(2021-12-03)：更新 ImageNet 验证的 `normalize`，统一参数规范
 
 Update(2021-12-03)：TTA(测试时数据增强)不符合PPMA用途，后续版本逐渐废弃，敬请期待下一个工具
 
-Update(2021-11-26)：增加 FLOPs 计算
-
 <details>
-
 <summary>
 更早的：
 </summary>
+
+Update(2021-11-26)：增加 FLOPs 计算
 
 Update(2021-11-26)：更新 Params、Troughput 的计算
 
@@ -53,18 +52,18 @@ pip install ppma
 
 🔥🔥🔥 Note：推荐去 AI Studio 在线免费运行项目 [PPMA 快速指南](https://aistudio.baidu.com/aistudio/projectdetail/2143665)
 
-* ImageNet 上快速验证模型
+* ImageNet 精度测试
 
-当训练了新的模型后，或者复现了某个模型，我们需要在 ImageNet 数据集上验证性能，先准备数据集结构如下（可去[ImageNet](https://image-net.org/)官网或者[AI Studio]([https://aistudio.baidu.com/aistudio/datasetdetail/96753)下载）
+当训练了新的模型后，或者复现了某个模型，我们需要在 ImageNet 数据集上验证性能，先准备数据集结构如下（可去 [ImageNet](https://image-net.org/) 官网或者 [AI Studio]([https://aistudio.baidu.com/aistudio/datasetdetail/96753) 下载）
 
 ```bash
-data/ILSVRC2012                             # 记住这个路径
+data/ILSVRC2012
 	├─ ILSVRC2012_val_00000001.JPEG
 	├─ ILSVRC2012_val_00000002.JPEG
 	├─ ILSVRC2012_val_00000003.JPEG
 	├─ ...
 	├─ ILSVRC2012_val_00050000.JPEG
-	└─ val.txt                          # target
+	└─ val.txt  # target
 ```
 
 准备好数据集后，运行以下代码
@@ -74,12 +73,9 @@ import ppma
 import paddle
 
 model = paddle.vision.models.resnet50(pretrained=True)	# 可以替换自己的模型
-data_path = "data/ILSVRC2012"	                        # 数据路径
+data_path = "data/ILSVRC2012"	                        # ImageNet 数据路径
 
 ppma.imagenet.val(model, data_path, batch_size=128 ,img_size=224, crop_pct=0.875, normalize='default')
-
-# normalize='default'   --> mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)
-# normalize='inception' --> mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)
 ```
 
 * 测试图片 Top5 类别
@@ -167,5 +163,6 @@ ppma.imagenet2012.validate(model, img_path)  # 变量命名有些冗余，可以
 
 ## 效果预览
 
- <img src="source/total.png" alt="图片1" style="zoom: 30%;" />
-
+<p align="center">
+<img src="source/total.png" alt="drawing" width="80%" height="80%"/>
+</p>

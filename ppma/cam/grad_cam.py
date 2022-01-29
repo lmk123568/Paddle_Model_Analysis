@@ -18,11 +18,7 @@ class BaseCAM:
         raise Exception("Not Implemented")
 
     def get_cam_image(
-        self,
-        input_tensor,
-        label,
-        activations,
-        grads,
+        self, input_tensor, label, activations, grads,
     ):
         weights = self.get_cam_weights(input_tensor, label, activations, grads)
         weighted_activations = weights[:, :, None, None] * activations
