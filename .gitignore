@@ -122,3 +122,7 @@ work_dirs/
 *.pth
 *.py~
 *.sh~
+
+# macOS
+.DS_Store
+*/.DS_Store
