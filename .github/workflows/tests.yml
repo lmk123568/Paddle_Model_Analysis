@@ -1,4 +1,4 @@
-name: Python package
+name: Python tests
 
 on: [push]
 
@@ -9,14 +9,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.x'
-    - name: Install dependencies
+
+    - name: Install testing dependencies
       run: |
         python -m pip install --upgrade pip
-    - name: Test with pytest
+        pip install pytest
+
+    - name: Install paddle on ubuntu
+      run: |
+        pip install paddlepaddle
+
+    - name: Install requirements
+      run: |
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Run pytest
       run: |
         pip install pytest
         pip install pytest-cov
